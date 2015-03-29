@@ -7,9 +7,6 @@
   "description": "Bright's backend, for dealing with Wolfram|Alpha.",
   "main": "app.js",
   "dependencies": {
-    "node-wolfram": "^0.0.1"
-  },
-  "devDependencies": {
     "body-parser": "^1.12.2",
     "express": "^4.12.3",
     "node-wolfram": "0.0.1"

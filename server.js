@@ -4,14 +4,14 @@ var express    = require('express');
 var bodyParser = require('body-parser');
 var app        = express();
 var Client     = require('node-wolfram');
-var Wolfram    = new Client(API_KEY);
+var Wolfram    = new Client(process.env.API_KEY);
 
 // use bodyParser() and get data from POST
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
 // set port!!
-var port = process.env.post || 8080
+var port = process.env.PORT || 8080
 
 // api routes
 var router = express.Router();
