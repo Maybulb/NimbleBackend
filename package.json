@@ -1,0 +1,32 @@
+{
+  "name": "BrightBackend",
+  "version": "0.0.1",
+  "description": "Bright's backend, for dealing with Wolfram|Alpha.",
+  "main": "app.js",
+  "dependencies": {
+    "node-wolfram": "^0.0.1"
+  },
+  "devDependencies": {
+    "node-wolfram": "0.0.1"
+  },
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/intui/BrightBackend"
+  },
+  "keywords": [
+    "bright",
+    "backend",
+    "node",
+    "js",
+    "api"
+  ],
+  "author": "Josh Trommel <joshtrommel@gmail.com> (http://joshtrommel.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/intui/BrightBackend/issues"
+  },
+  "homepage": "https://github.com/intui/BrightBackend"
+}
