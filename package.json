@@ -10,10 +10,12 @@
     "node-wolfram": "^0.0.1"
   },
   "devDependencies": {
+    "body-parser": "^1.12.2",
+    "express": "^4.12.3",
     "node-wolfram": "0.0.1"
   },
   "scripts": {
-    "test": "node app.js"
+    "test": "node server.js"
   },
   "repository": {
     "type": "git",
