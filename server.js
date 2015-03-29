@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
 // set port!!
-var port = process.env.post || 8080
+var port = process.env.port || 8080
 
 // api routes
 var router = express.Router();
