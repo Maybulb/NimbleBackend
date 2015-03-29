@@ -1,6 +1,9 @@
 {
   "name": "BrightBackend",
   "version": "0.0.1",
+  "engines": {
+    "node": "0.12.1"
+  },
   "description": "Bright's backend, for dealing with Wolfram|Alpha.",
   "main": "app.js",
   "dependencies": {
