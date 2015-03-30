@@ -20,16 +20,17 @@ var router = express.Router();
 router.get('/', function(request, response) {
   Wolfram.query(request.query.i, function(error, result) {
       if (error) {
-        console.log(err);
+        console.error(err);
       }
       else {
-        response.json({result:result});
+        var finalResult = result.queryresult.pod[1].subpod[0].plaintext[0]
+        response.json({result:finalResult});
       }
   });
 
 })
 
-// all routes prefix with /api
+// all routes prefix with /input
 app.use('/input', router);
 
 // start the server man!!
