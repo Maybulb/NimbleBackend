@@ -20,11 +20,21 @@ var router = express.Router();
 router.get('/', function(request, response) {
   Wolfram.query(request.query.i, function(error, result) {
       if (error) {
-        console.error(err);
-      }
-      else {
-        var finalResult = result.queryresult.pod[1].subpod[0].plaintext[0]
-        response.json({result:finalResult});
+        console.error(error);
+      } else {
+        // API:
+        // First result (0) contains info on user input
+        // Second result contains result/input of input
+        // Third result contains misc extra answers such as word value of a #
+        // Fourth result contains extra misc shit we don't need to worry abt
+        // Fifth result contains even more misc shit. Get to this later
+
+        var final = {
+          input: result.queryresult.pod[0].subpod[0].plaintext[0],
+          result: result.queryresult.pod[1].subpod[0].plaintext[0]
+        }
+
+        response.json({result: final});
       }
   });
 
