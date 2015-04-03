@@ -32,12 +32,33 @@ router.get('/', function(request, response) {
         if (result.queryresult.$.success) {
           // Status returned is gucci
           try {
+
             var final = {
               type:   result.queryresult.$.datatypes,
               input:  result.queryresult.pod[0].subpod[0].plaintext[0],
               result: {
                 plaintext: result.queryresult.pod[1].subpod[0].plaintext[0],
               }
+            }
+
+            switch(final.type) {
+              case "Weather":
+                break
+              case "Math":
+                break
+              case "Food":
+                break
+              case "Word":
+                var plaintext = final.result.plaintext // 1 | noun | the fleshy part of the human body that you sit on
+                var dict = plaintext.split(" | ") // [1, "noun", ]
+
+                delete final["result"]["plaintext"]
+                dict.splice(0, 1);
+
+                final["result"]["word type"]  = dict[0]
+                final["result"]["definition"] = dict[1].replace('\n2', ''); // "the fleshy part of the human body that you sit on"
+                break
+              default:
             }
 
             // Shoot of the Jason (best/fav son) response
