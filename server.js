@@ -37,14 +37,14 @@ router.get('/', function(request, response) {
           }
         }
 
-        switch (final["type"]) {
-          case "Word":
-            var definition = final["result"]["plaintext"].split(" | ")
-            delete final["result"]["plaintext"]
-            final["result"]["term"] = definition[0]
-            final["result"]["description"] = definition[1]
-          default:
-        }
+        // switch (final["type"]) {
+        //   case "Word":
+        //     var definition = final["result"]["plaintext"].split(" | ")
+        //     delete final["result"]["plaintext"]
+        //     final["result"]["term"] = definition[0]
+        //     final["result"]["description"] = definition[1]
+        //   default:
+        // }
 
         response.json({result: final});
       }
