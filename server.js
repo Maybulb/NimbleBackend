@@ -29,19 +29,18 @@ router.get('/', function(request, response) {
         // Fourth result contains extra misc shit we don't need to worry abt
         // Fifth result contains even more misc shit. Get to this later
 
-        var final = {
-          type:   result.queryresult.$.datatypes,
-          input:  result.queryresult.pod[0].subpod[0].plaintext[0],
-          result: {
-            plaintext: result.queryresult.pod[1].subpod[0].plaintext[0],
-          }
-        }
-
         try {
+          var final = {
+            type:   result.queryresult.$.datatypes,
+            input:  result.queryresult.pod[0].subpod[0].plaintext[0],
+            result: {
+              plaintext: result.queryresult.pod[1].subpod[0].plaintext[0],
+            }
+          }
           response.json({result: final});
-        } catch {
+        } catch(error) {
           response.status(400);
-          response.send('Uh oh, something fucked up!! haha sorry')
+          response.send("Uh oh, " + error + ". Tell <a href=\"https://twitter.com/nulljosh\">@nulljosh</a> to clean up his mess")
         }
 
         // switch (final["type"]) {
