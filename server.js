@@ -37,6 +37,13 @@ router.get('/', function(request, response) {
           }
         }
 
+        try {
+          response.json({result: final});
+        } catch {
+          response.status(400);
+          response.send('Uh oh, something fucked up!! haha sorry')
+        }
+
         // switch (final["type"]) {
         //   case "Word":
         //     var definition = final["result"]["plaintext"].split(" | ")
@@ -45,8 +52,6 @@ router.get('/', function(request, response) {
         //     final["result"]["description"] = definition[1]
         //   default:
         // }
-
-        response.json({result: final});
       }
   });
 
