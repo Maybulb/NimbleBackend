@@ -4,20 +4,29 @@ Bright's backend, for dealing with Wolfram|Alpha.
 Usage
 ====
 
+/input is our API input. I'm using input instead of api like most backends
+because W|A uses input and we're basically mimicking them here. I don't know,
+it just looks clean.
+
 ```
 https://bright-backend.herokuapp.com/input?i=query
 ```
 
-Returns your answer in JSON with the `result` key. If you asked what
-5 plus 10 is:
+This your answer in JSON. Everything's in the `result` key.
+
+```json
+https://bright-backend.herokuapp.com/input?i=define+smooth
+```
+
 
 ```json
 {
   "result": {
-  "type":"Math",
-  "input":"5+10",
-  "result":{
-    "plaintext":"15"
+    "type":"Word",
+    "input":"smooth  (English word) | definitions",
+    "result": {
+      "word type":"adjective",
+      "definition":"having a surface free from roughness or bumps or ridges or irregularities"
     }
   }
 }
