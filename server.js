@@ -6,17 +6,17 @@ var app        = express();
 var Client     = require('node-wolfram');
 var Wolfram    = new Client(process.env.API_KEY);
 
-// use bodyParser() and get data from POST
+// Use bodyParser() and get data from POST
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
-// set port!!
+// Set the port
 var port = process.env.PORT || 8080
 
-// api routes
+// API Routes
 var router = express.Router();
 
-// test api, make sure shit's working
+// The main shit here boys
 router.get('/', function(request, response) {
   Wolfram.query(request.query.i, function(error, result) {
       if (error) {
@@ -29,35 +29,33 @@ router.get('/', function(request, response) {
         // Fourth result contains extra misc shit we don't need to worry abt
         // Fifth result contains even more misc shit. Get to this later
 
-        try {
-          var final = {
-            type:   result.queryresult.$.datatypes,
-            input:  result.queryresult.pod[0].subpod[0].plaintext[0],
-            result: {
-              plaintext: result.queryresult.pod[1].subpod[0].plaintext[0],
+        if (result.queryresult.$.success) {
+          // Status returned is gucci
+          try {
+            var final = {
+              type:   result.queryresult.$.datatypes,
+              input:  result.queryresult.pod[0].subpod[0].plaintext[0],
+              result: {
+                plaintext: result.queryresult.pod[1].subpod[0].plaintext[0],
+              }
             }
+
+            // Shoot of the Jason (best/fav son) response
+            response.json({result: final});
+          } catch(error) {
+            // The fuck did the user search for
+            // Adam's probably fucking around again smh
+            response.send("Error: " + error + ". <a href=\"https://twitter.com/nulljosh\">Tell @nulljosh to clean up this mess >:(</a>")
           }
-          response.json({result: final});
-        } catch(error) {
-          response.status(400);
-          response.send("Uh oh, " + error + ". Tell <a href=\"https://twitter.com/nulljosh\">@nulljosh</a> to clean up his mess")
         }
 
-        // switch (final["type"]) {
-        //   case "Word":
-        //     var definition = final["result"]["plaintext"].split(" | ")
-        //     delete final["result"]["plaintext"]
-        //     final["result"]["term"] = definition[0]
-        //     final["result"]["description"] = definition[1]
-        //   default:
-        // }
       }
   });
 
 })
 
-// all routes prefix with /input
+// All routes prefix with /input
 app.use('/input', router);
 
-// start the server man!!
+// Start the server man!!
 app.listen(port);
