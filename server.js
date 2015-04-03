@@ -30,8 +30,20 @@ router.get('/', function(request, response) {
         // Fifth result contains even more misc shit. Get to this later
 
         var final = {
-          input: result.queryresult.pod[0].subpod[0].plaintext[0],
-          result: result.queryresult.pod[1].subpod[0].plaintext[0]
+          type:   result.queryresult.$.datatypes,
+          input:  result.queryresult.pod[0].subpod[0].plaintext[0],
+          result: {
+            plaintext: result.queryresult.pod[1].subpod[0].plaintext[0],
+          }
+        }
+
+        switch (final["type"]) {
+          case "Word":
+            var definition = final["result"]["plaintext"].split(" | ")
+            delete final["result"]["plaintext"]
+            final["result"]["term"] = definition[0]
+            final["result"]["description"] = definition[1]
+          default:
         }
 
         response.json({result: final});
