@@ -22,7 +22,7 @@ https://bright-backend.herokuapp.com/input?i=define+smooth
 ```json
 {
   "result": {
-    success: true,
+    "success": true,
     "type":"Word",
     "input":"smooth  (English word) | definitions",
     "result": {
