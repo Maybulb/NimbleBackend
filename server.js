@@ -34,6 +34,7 @@ router.get('/', function(request, response) {
           try {
 
             var final = {
+              success: true,
               type:   result.queryresult.$.datatypes,
               input:  result.queryresult.pod[0].subpod[0].plaintext[0],
               result: {
@@ -42,9 +43,11 @@ router.get('/', function(request, response) {
             }
 
             switch(final.type) {
-              case "Weather":
+              case "City,Weather":
                 break
               case "Math":
+                final["result"]["words"] = result.queryresult.pod[2].subpod[0].plaintext[0]
+                final["result"]["plaintext"] = final["result"]["plaintext"]
                 break
               case "Food":
                 break
@@ -63,10 +66,10 @@ router.get('/', function(request, response) {
 
             // Shoot of the Jason (best/fav son) response
             response.json({result: final});
-          } catch(error) {
+          } catch(err) {
             // The fuck did the user search for
             // Adam's probably fucking around again smh
-            response.send("Error: " + error + ". <a href=\"https://twitter.com/nulljosh\">Tell @nulljosh to clean up this mess >:(</a>")
+            response.json({result: {success: false, input: request.query.i}})
           }
         }
 
