@@ -28,7 +28,7 @@ function getPage(url, callback) {
 
     response.on('end', function() {
       parseString(body, function (error, result) {
-        callback(JSON.parse(result))
+        callback(result)
       });
     });
 
