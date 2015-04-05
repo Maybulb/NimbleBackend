@@ -18,26 +18,30 @@ var port = process.env.PORT || 8080
 // API Routes
 var router = express.Router();
 
-function getPage(response, page) {
-  http.request(url.parse(page), function(res) {
-    var buffer = '';
+function getPage(url, callback) {
+  var request = http.get(url, function(response) {
+    var body = '';
 
-    res.on('data', function(chunk) {
-      buffer += chunk;
+    response.on('data', function(chunk) {
+      body += chunk
     });
 
-    res.on('end', function() {
-      response.send(buffer);
+    response.on('end', function() {
+      parseString(body, function (error, result) {
+        callback(JSON.parse(result))
+      });
     });
-  });
+
+  })
 }
 
 
 // The main shit here boys
 router.get('/', function(request, response) {
   var apiUrl = "http://api.wolframalpha.com/v2/query?appid=" + process.env.API_KEY + "&input=" + request.query.i + "&format=plaintext";
-  var xml = getPage(response, apiUrl);
-  response.send(xml)
+  getPage(apiUrl, function(json) {
+    response.json({result: json})
+  });
 });
 
 // All routes prefix with /input
