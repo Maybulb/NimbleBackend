@@ -1,5 +1,5 @@
 # BrightBackend
-Bright's backend, for dealing with Wolfram|Alpha.
+[Bright](https://github.com/intui/bright)'s backend, for dealing with Wolfram|Alpha.
 
 Usage
 ====
