@@ -72,6 +72,10 @@ router.get('/', function(request, response) {
             json["result"]["words"] = result.queryresult.pod[2].subpod[0].plaintext[0]
             json["result"]["plaintext"] = json["result"]["plaintext"]
             break
+          case "MathWorld":
+            json['result']['definition'] = json['result']['plaintext']
+            delete json['result']['plaintext']
+            break
           case "Food":
             break
           case "Word":
