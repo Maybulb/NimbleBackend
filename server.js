@@ -60,8 +60,13 @@ router.get('/', function(request, response) {
           }
         }
 
+        // For now we're just grabbing simple info
         switch(json.type) {
-          case "City,Weather":
+          case "City,Weather": case "Weather":
+            json.result.temperature = json['result']['plaintext'].substring(14, 19)
+            // Still an issue if the weather only has one digit (or more than 2)
+
+            delete json.result.plaintext
             break
           case "Math":
             json["result"]["words"] = result.queryresult.pod[2].subpod[0].plaintext[0]
