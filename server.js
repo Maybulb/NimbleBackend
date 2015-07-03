@@ -73,7 +73,7 @@ router.get('/', function(request, response) {
             json["result"]["plaintext"] = json["result"]["plaintext"]
             break
           case "MathWorld":
-            json['result']['definition'] = json['result']['plaintext']
+            json['result']['plaintext'] = json['result']['plaintext']
             delete json['result']['plaintext']
             break
           case "Food":
@@ -86,7 +86,7 @@ router.get('/', function(request, response) {
             dict.splice(0, 1);
 
             json["result"]["word type"]  = dict[0]
-            json["result"]["definition"] = dict[1].replace('\n2', ''); // "the fleshy part of the human body that you sit on"
+            json["result"]["plaintext"] = dict[1].replace('\n2', ''); // "the fleshy part of the human body that you sit on"
             break
           default:
         }
