@@ -1,5 +1,5 @@
-# BrightBackend
-[Bright](https://github.com/intui/bright)'s backend, for dealing with Wolfram|Alpha.
+# Nimble Backend
+[Nimble](https://github.com/bright/nimble)'s backend, for dealing with Wolfram|Alpha.
 
 Usage
 ====
@@ -9,13 +9,13 @@ because W|A uses input and we're basically mimicking them here. I don't know,
 it just looks clean.
 
 ```
-https://bright-backend.herokuapp.com/input?i=query
+https://nimble-backend.herokuapp.com/input?i=query
 ```
 
 This your answer in JSON. Everything's in the `result` key.
 
 ```json
-https://bright-backend.herokuapp.com/input?i=define+smooth
+https://nimble-backend.herokuapp.com/input?i=define+smooth
 ```
 
 
