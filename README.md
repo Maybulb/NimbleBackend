@@ -1,5 +1,5 @@
 # Nimble Backend
-[Nimble](https://github.com/bright/nimble)'s backend, for dealing with Wolfram|Alpha.
+[Nimble](https://github.com/madebybright/nimble)'s backend, for dealing with Wolfram|Alpha.
 
 Usage
 ====
