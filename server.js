@@ -34,10 +34,16 @@ function getPage(url, callback) {
   })
 }
 
+// For some reason shit like "10+10" returns 100 as if + and * are the same thing
+// Programming makes no sense
+// I guess this is a hack
+var input = request.query.i
+input.replace(/+/g, "plus")
+input.replace(/-/g, "minus")
 
 // The main shit here boys
 router.get('/', function(request, response) {
-  var apiUrl = "http://api.wolframalpha.com/v2/query?appid=" + process.env.API_KEY + "&input=" + request.query.i + "&format=plaintext";
+  var apiUrl = "http://api.wolframalpha.com/v2/query?appid=" + process.env.API_KEY + input + "&format=plaintext";
   getPage(apiUrl, function(result) {
 
     // API:
