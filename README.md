@@ -25,6 +25,7 @@ https://nimble-backend.herokuapp.com/input?i=define+smooth
     "success": true,
     "type":"Word",
     "input":"smooth  (English word) | definitions",
+    "origin_url": "http://www.wolframalpha.com/input/?i=define%20smooth",
     "result": {
       "word type":"adjective",
       "definition":"having a surface free from roughness or bumps or ridges or irregularities"
