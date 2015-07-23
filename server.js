@@ -55,6 +55,7 @@ router.get('/', function(request, response) {
           success: true,
           type:   result.queryresult.$.datatypes,
           input:  result.queryresult.pod[0].subpod[0].plaintext[0],
+          origin_url: 'http://www.wolframalpha.com/input/?i=' + encodeURIComponent(request.query.i),
           result: {
             plaintext: result.queryresult.pod[1].subpod[0].plaintext[0],
           }
