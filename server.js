@@ -97,7 +97,16 @@ router.get('/', function(request, response) {
       } catch(err) {
         // The fuck did the user search for
         // Adam's probably fucking around again smh
-        response.json({result: {success: false, input: request.query.i}})
+
+        var res = {
+          result: {
+            success: false,
+            input: request.query.i,
+            origin_url: 'http://www.wolframalpha.com/input/?i=' + encodeURIComponent(request.query.i),
+          }
+        }
+
+        response.json(res);
       }
     }
 
