@@ -1,11 +1,11 @@
 {
-  "name": "BrightBackend",
-  "version": "0.0.1",
+  "name": "NimbleBackend",
+  "version": "0.3.5",
   "engines": {
     "node": "0.12.1"
   },
-  "description": "Bright's backend, for dealing with Wolfram|Alpha.",
-  "main": "app.js",
+  "description": "Nimble's backend, for dealing with Wolfram|Alpha.",
+  "main" "server.js",
   "dependencies": {
     "body-parser": "^1.12.2",
     "express": "^4.12.3",
@@ -16,9 +16,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/intui/BrightBackend"
+    "url": "https://github.com/madebybright/NimbleBackend"
   },
   "keywords": [
+    "nimble",
     "bright",
     "backend",
     "node",
@@ -28,7 +29,7 @@
   "author": "Josh Trommel <joshtrommel@gmail.com> (http://joshtrommel.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/intui/BrightBackend/issues"
+    "url": "https://github.com/madebybright/NimbleBackend/issues"
   },
-  "homepage": "https://github.com/intui/BrightBackend"
+  "homepage": "https://github.com/madebybright/NimbleBackend"
 }
