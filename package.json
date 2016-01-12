@@ -5,7 +5,7 @@
     "node": "0.12.1"
   },
   "description": "Nimble's backend, for dealing with Wolfram|Alpha.",
-  "main" "server.js",
+  "main": "server.js",
   "dependencies": {
     "body-parser": "^1.12.2",
     "express": "^4.12.3",
