@@ -51,6 +51,11 @@ router.get('/', function(request, response) {
       // Status returned is gucci
       try {
 
+        var plaintext = []
+        for (var i = 0; i < result.queryresult.pod.length; i++) {
+          plaintext.push(result.queryresult.pod[i].subpod[0].plaintext[0]);
+        }
+
         var json = {
           success: true,
           type:   result.queryresult.$.datatypes,
@@ -58,6 +63,7 @@ router.get('/', function(request, response) {
           origin_url: 'http://www.wolframalpha.com/input/?i=' + encodeURIComponent(request.query.i),
           result: {
             plaintext: result.queryresult.pod[1].subpod[0].plaintext[0],
+            pods: plaintext
           }
         }
 
