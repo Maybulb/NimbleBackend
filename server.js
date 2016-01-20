@@ -17,7 +17,7 @@ router = express.Router();
 router.get('/', function(request, response) {
   wolfram.query(request.query.i, function(err, result) {
     if (err) throw err;
-    var url = 'http://www.wolframalpha.com/input/?i=' + encodeURIComponent(request.query.i);
+    var url = 'http://www.wolframalpha.com/input/?width=360&i=' + encodeURIComponent(request.query.i);
     result.push({origin_url:url})
     response.json(result);
   });
