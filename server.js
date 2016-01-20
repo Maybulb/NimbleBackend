@@ -1,7 +1,9 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var wolfram = require('wolfram-alpha').createClient(process.env.API_KEY);
+var wolfram = require('wolfram-alpha').createClient(process.env.API_KEY, {
+  width: 360
+});
 var port, router;
 
 
