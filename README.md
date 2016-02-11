@@ -1,6 +1,8 @@
 # Nimble Backend
 [Nimble](https://github.com/madebybright/nimble)'s backend, for dealing with Wolfram|Alpha.
 
+## NO LONGER MAINTAINED
+
 Usage
 ====
 
